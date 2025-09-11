@@ -1,0 +1,13 @@
+/* student-dashboard.css - Enhanced for metrics and chart */
+.metrics p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.metrics .star {
+    margin-right: 2px;
+}
+
+canvas {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Depth for chart */
+}

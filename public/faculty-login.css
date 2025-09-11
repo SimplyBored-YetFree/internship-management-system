@@ -1,0 +1,10 @@
+/* faculty-login.css - Select for role, department input */
+select[ name="role" ] {
+    background: #e9ecef; /* Grayish for role select */
+}
+
+.faculty-portal {
+    font-size: 18px;
+    color: #004085;
+    margin-bottom: 20px;
+}

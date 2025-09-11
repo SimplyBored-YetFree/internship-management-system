@@ -1,0 +1,11 @@
+/* group-management.css - Enhanced for group forms */
+.group-form {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+}
+
+.group-name {
+    color: #007bff;
+}

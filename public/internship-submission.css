@@ -1,0 +1,17 @@
+/* internship-submission.css - Reinstated file size note, attach styling */
+.file-note {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.attach-button {
+    background: #28a745; /* Green for attach */
+    padding: 8px 16px;
+    margin-left: 10px;
+}
+
+input[type="file"] {
+    display: inline-block;
+    width: auto;
+}

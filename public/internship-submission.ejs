@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Internship Submission</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/internship-submission.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Submit Internship Details</h2>
+    <p class="file-note">All certificates and images to be attached must be below 60mb.</p>
+    <form action="/student/submit-internship" method="POST" enctype="multipart/form-data">
+        <label>Company Name</label><input type="text" name="company_name" required><br>
+        <label>Role</label><input type="text" name="role" required><br>
+        <label>Company Link</label><input type="url" name="company_link"><br>
+        <label>Stipend</label><input type="text" name="stipend"><br>
+        <label>Contact Email</label><input type="email" name="contact_mail"><br>
+        <label>Start Date</label><input type="date" name="start_date" required><br>
+        <label>End Date</label><input type="date" name="end_date" required><br>
+        <label>Company Mentor</label><input type="text" name="company_mentor"><br>
+        <label>Offer Letter</label><input type="file" name="offer_letter"><button class="attach-button">Attach</button><br>
+        <label>Completion Letter</label><input type="file" name="completion_letter"><button class="attach-button">Attach</button><br>
+        <label>Letter of Recommendation</label><input type="file" name="lor"><button class="attach-button">Attach</button><br>
+        <input type="submit" value="Submit →">
+    </form>
+    <a href="/student-dashboard" class="button">Back</a>
+</div>
+</body>
+</html>

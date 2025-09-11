@@ -1,0 +1,11 @@
+/* index.css - Home page specific */
+.rating {
+    font-size: 18px;
+    color: #ffd700; /* Gold for stars */
+    margin: 10px 0;
+}
+
+.reviews {
+    font-style: italic;
+    color: #666;
+}

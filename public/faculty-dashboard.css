@@ -1,0 +1,11 @@
+/* faculty-dashboard.css - Table for students, search input */
+#studentSearch {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.create-group {
+    background: #ffc107; /* Yellow for create button */
+}

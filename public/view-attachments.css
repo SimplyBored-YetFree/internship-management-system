@@ -1,0 +1,12 @@
+/* view-attachments.css - Styled download links */
+a.download {
+    display: block;
+    margin: 10px 0;
+    color: #007bff;
+    text-decoration: underline;
+    transition: color 0.3s;
+}
+
+a.download:hover {
+    color: #0056b3;
+}

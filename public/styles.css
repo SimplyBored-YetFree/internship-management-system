@@ -1,0 +1,123 @@
+/* Common Styles - Enhanced for depth: fonts, responsiveness, animations */
+@import url('https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap');
+
+body {
+    background: linear-gradient(to bottom, #e6f0fa, #ffffff); /* Subtle blue-white gradient from originals */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 30px; /* More padding for depth */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    transition: box-shadow 0.3s ease; /* Animation on hover */
+}
+
+.container:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+h1, h2, h3 {
+    color: #004085; /* Dark blue for headers */
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+button, input[type="submit"], a.button {
+    background: #007bff; /* Blue button from theme */
+    color: white;
+    border: none;
+    padding: 12px 24px; /* Larger for depth */
+    cursor: pointer;
+    border-radius: 6px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: background 0.3s ease, transform 0.2s ease; /* Hover animation */
+}
+
+button:hover, input[type="submit"]:hover, a.button:hover {
+    background: #0056b3;
+    transform: translateY(-2px); /* Slight lift */
+}
+
+.star {
+    color: gold;
+    font-size: 20px; /* Larger stars for emphasis */
+}
+
+canvas {
+    max-width: 300px;
+    margin: 20px auto;
+    display: block; /* Center chart */
+    border: 1px solid #ddd; /* Border for depth */
+    border-radius: 8px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px; /* More padding */
+    text-align: left;
+    transition: background 0.2s; /* Row hover */
+}
+
+th {
+    background: #f4f4f4;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #f9f9f9;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border 0.3s; /* Focus effect */
+}
+
+input:focus, select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.home-icon {
+    font-size: 24px;
+    color: #007bff; /* Blue home icon from originals */
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+    button, input[type="submit"] {
+        width: 100%;
+    }
+}

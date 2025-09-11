@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation Form</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/evaluation-form.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Evaluate Student</h2>
+    <form action="/faculty/submit-evaluation" method="POST">
+        <input type="hidden" name="student_id" value="<%= student_id %>">
+        <div class="performance-metrics">
+            <label>Technical Skill (1-5)</label><input type="number" name="technical_skill" min="1" max="5" required><br>
+            <label>Initiative (1-5)</label><input type="number" name="initiative" min="1" max="5" required><br>
+            <label>Communication (1-5)</label><input type="number" name="communication" min="1" max="5" required><br>
+            <label>Professionalism (1-5)</label><input type="number" name="professionalism" min="1" max="5" required><br>
+            <label>Timely Completion (1-5)</label><input type="number" name="timely_completion" min="1" max="5" required><br>
+        </div>
+        <label>Skills Gained</label><input type="text" name="skills_gained"><br>
+        <label>Soft Skills</label><input type="text" name="soft_skills"><br>
+        <label>Tools Used</label><input type="text" name="tools_used"><br>
+        <label>Task Types (%)</label><br>
+        <div class="task-inputs">
+            <input type="number" name="code" placeholder="Code %"><br>
+            <input type="number" name="research" placeholder="Research %"><br>
+            <input type="number" name="documentation" placeholder="Documentation %"><br>
+            <input type="number" name="testing" placeholder="Testing %"><br>
+            <input type="number" name="meetings" placeholder="Meetings %"><br>
+        </div>
+        <input type="submit" value="Submit Evaluation →">
+    </form>
+    <a href="/faculty-dashboard" class="button">Back</a>
+</div>
+</body>
+</html>

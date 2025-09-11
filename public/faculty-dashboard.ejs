@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/faculty-dashboard.css">
+    <script src="/faculty-dashboard.js"></script>
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Faculty Dashboard</h2>
+    <h3>Students</h3>
+    <input type="text" id="studentSearch" placeholder="Search by name or reg no">
+    <table>
+        <tr><th>Name</th><th>Reg No</th><th>Semester</th><th>Actions</th></tr>
+        <% students.forEach(student => { %>
+            <tr class="student-row">
+                <td><%= student.name %></td>
+                <td><%= student.reg_no %></td>
+                <td><%= student.semester %></td>
+                <td>
+                    <a href="/evaluation-form?student_id=<%= student.id %>" class="button">Evaluate</a>
+                    <a href="/view-attachments?student_id=<%= student.id %>" class="button">View Files</a>
+                </td>
+            </tr>
+        <% }) %>
+    </table>
+    <a href="/group-management" class="button">Manage Groups</a>
+    <a href="/logout" class="button">Logout</a>
+</div>
+</body>
+</html>

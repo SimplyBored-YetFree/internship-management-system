@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Login</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/faculty-login.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <p class="faculty-portal">Christ University Faculty Portal</p>
+    <h2>Faculty Login</h2>
+    <p class="required-note">*All Details Are Required To Be Filled</p>
+    <form action="/faculty/login" method="POST">
+        <label>Faculty ID</label><input type="text" name="faculty_id" required><br>
+        <label>Password</label><input type="password" name="password" required><br>
+        <input type="submit" value="Log In">
+    </form>
+    <a href="/" class="button">Back</a>
+</div>
+</body>
+</html>

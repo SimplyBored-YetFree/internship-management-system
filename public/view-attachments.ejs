@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Attachments</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/view-attachments.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Student Attachments</h2>
+    <% if (internship.offer_letter) { %>
+        <a href="/uploads/<%= internship.offer_letter %>" download class="download">Download Offer Letter</a><br>
+    <% } %>
+    <% if (internship.completion_letter) { %>
+        <a href="/uploads/<%= internship.completion_letter %>" download class="download">Download Completion Letter</a><br>
+    <% } %>
+    <% if (internship.lor) { %>
+        <a href="/uploads/<%= internship.lor %>" download class="download">Download LOR</a><br>
+    <% } %>
+    <a href="/faculty-dashboard" class="button">Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Group Management</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/group-management.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Manage Groups</h2>
+    <form action="/faculty/create-group" method="POST">
+        <label>Group Name</label><input type="text" name="name" required><br>
+        <input type="submit" value="Create Group →">
+    </form>
+    <h3>Your Groups</h3>
+    <% groups.forEach(group => { %>
+        <div class="group-form">
+            <h4 class="group-name"><%= group.name %></h4>
+            <form action="/faculty/add-student-to-group" method="POST">
+                <input type="hidden" name="group_id" value="<%= group.id %>">
+                <label>Student Reg No</label><input type="text" name="reg_no"><br>
+                <input type="submit" value="Add Student →">
+            </form>
+            <form action="/faculty/remove-student-from-group" method="POST">
+                <input type="hidden" name="group_id" value="<%= group.id %>">
+                <label>Student Reg No</label><input type="text" name="reg_no"><br>
+                <input type="submit" value="Remove Student →">
+            </form>
+        </div>
+    <% }) %>
+    <a href="/faculty-dashboard" class="button">Back</a>
+</div>
+</body>
+</html>

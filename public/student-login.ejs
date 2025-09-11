@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/student-login.css">
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Student Login</h2>
+    <p class="required-note">*All Details Are Required To Be Filled</p>
+    <form action="/student/login" method="POST">
+        <label>Full Name</label><input type="text" name="name" required><br>
+        <label>Register Number</label><input type="text" name="reg_no" required><br>
+        <label>Email</label><input type="email" name="email" required><br>
+        <label>Semester</label>
+        <select name="semester" required>
+            <% for(let i=1; i<=6; i++) { %>
+                <option value="<%= i %>">Semester <%= i %></option>
+            <% } %>
+        </select><br>
+        <label>Password</label><input type="password" name="password" required><br>
+        <input type="submit" value="Log In">
+    </form>
+    <a href="/" class="button">Back</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/css/student-dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/scripts.js"></script>
+    <script src="/student-dashboard.js"></script>
+</head>
+<body>
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Your Internship</h2>
+    <p>Name: <%= student.name %></p>
+    <p>Register Number: <%= student.reg_no %></p>
+    <p>Internship: <%= internship ? internship.company_name : 'Not submitted' %></p>
+    <% if (evaluation) { %>
+        <h3>Evaluation</h3>
+        <div class="performance-metrics">
+            <p>Technical Skill: <% for(let i=0; i<evaluation.technical_skill; i++) { %>★<% } %></p>
+            <p>Initiative: <% for(let i=0; i<evaluation.initiative; i++) { %>★<% } %></p>
+            <p>Communication: <% for(let i=0; i<evaluation.communication; i++) { %>★<% } %></p>
+            <p>Professionalism: <% for(let i=0; i<evaluation.professionalism; i++) { %>★<% } %></p>
+            <p>Timely Completion: <% for(let i=0; i<evaluation.timely_completion; i++) { %>★<% } %></p>
+            <p>Skills Gained: <%= evaluation.skills_gained %></p>
+            <p>Soft Skills: <%= evaluation.soft_skills %></p>
+            <p>Tools Used: <%= evaluation.tools_used %></p>
+        </div>
+        <canvas id="taskPieChart"></canvas>
+        <div id="taskData" data-tasks='<%- JSON.stringify(evaluation.task_types) %>' style="display:none;"></div>
+    <% } %>
+    <a href="/internship-submission" class="button">Submit Internship</a>
+    <a href="/logout" class="button">Logout</a>
+</div>
+</body>
+</html>
