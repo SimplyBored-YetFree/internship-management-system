@@ -1,30 +1,66 @@
-/* faculty-dashboard.css - Enhanced */
+/* faculty-dashboard.css - Completely Redesigned */
 #studentSearch {
   width: 100%;
-  margin-bottom: 20px;
-  padding: 14px 20px;
+  margin-bottom: 25px;
+  padding: 18px 25px;
   border: 2px solid var(--light-gray);
-  border-radius: var(--border-radius);
+  border-radius: 50px;
   transition: var(--transition);
   font-size: 1rem;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.05);
+  background: var(--white);
+  position: relative;
 }
 
 #studentSearch:focus {
   border-color: var(--primary);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.2), inset 0 4px 8px rgba(0, 0, 0, 0.05);
+  transform: translateY(-3px);
+}
+
+#studentSearch::placeholder {
+  color: var(--gray);
+  opacity: 0.7;
 }
 
 .create-group {
-  background: var(--warning);
+  background: linear-gradient(135deg, var(--warning) 0%, #f8961e 100%);
   color: #333;
-  font-weight: 600;
-  box-shadow: 0 4px 6px rgba(255, 209, 102, 0.3);
+  font-weight: 700;
+  box-shadow: 0 10px 20px rgba(248, 150, 30, 0.3);
+  letter-spacing: 1px;
+  padding: 18px 35px;
+  border-radius: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.create-group::before {
+  content: "+";
+  margin-right: 10px;
+  font-weight: 700;
 }
 
 .create-group:hover {
-  background: #ffc93c;
-  transform: translateY(-3px);
-  box-shadow: 0 7px 14px rgba(255, 209, 102, 0.4);
+  transform: translateY(-5px) rotate(2deg);
+  box-shadow: 0 15px 30px rgba(248, 150, 30, 0.4);
+}
+
+/* Table enhancements */
+.faculty-table {
+  position: relative;
+}
+
+.faculty-table::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: var(--accent);
+  opacity: 0.05;
+  border-radius: 50%;
+  z-index: -1;
 }

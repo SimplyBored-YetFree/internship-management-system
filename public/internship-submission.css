@@ -1,36 +1,75 @@
-/* internship-submission.css - Enhanced */
+/* internship-submission.css - Completely Redesigned */
 .file-note {
   color: var(--danger);
-  font-size: 14px;
-  margin-bottom: 20px;
-  padding: 10px 15px;
+  font-size: 16px;
+  margin-bottom: 25px;
+  padding: 15px 20px;
   background: rgba(239, 71, 111, 0.1);
   border-radius: var(--border-radius);
+  border-left: 5px solid var(--danger);
+  position: relative;
+}
+
+.file-note::before {
+  content: "💡";
+  margin-right: 10px;
+  font-size: 20px;
 }
 
 .attach-button {
-  background: var(--success);
-  padding: 10px 20px;
-  margin-left: 10px;
-  border-radius: var(--border-radius);
+  background: linear-gradient(135deg, var(--success) 0%, #118ab2 100%);
+  padding: 12px 24px;
+  margin-left: 15px;
+  border-radius: 50px;
   transition: var(--transition);
+  box-shadow: 0 5px 15px rgba(4, 201, 240, 0.3);
+  font-weight: 600;
 }
 
 .attach-button:hover {
-  background: #05c290;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #05c290 0%, #0a7c8f 100%);
+  transform: translateY(-5px) rotate(2deg);
+  box-shadow: 0 10px 25px rgba(4, 201, 240, 0.4);
 }
 
 input[type="file"] {
   display: inline-block;
   width: auto;
-  padding: 10px;
+  padding: 15px;
   border: 2px dashed var(--light-gray);
   border-radius: var(--border-radius);
   transition: var(--transition);
+  background: rgba(248, 249, 252, 0.7);
 }
 
 input[type="file"]:hover {
   border-color: var(--primary);
   background: rgba(67, 97, 238, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Drag and drop area styling */
+.file-drop-area {
+  border: 2px dashed var(--primary);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  text-align: center;
+  transition: var(--transition);
+  background: rgba(67, 97, 238, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.file-drop-area:hover {
+  background: rgba(67, 97, 238, 0.1);
+  transform: translateY(-5px);
+}
+
+.file-drop-area::before {
+  content: "📁";
+  font-size: 40px;
+  display: block;
+  margin-bottom: 15px;
+  opacity: 0.7;
 }

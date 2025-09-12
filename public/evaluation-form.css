@@ -1,31 +1,79 @@
-/* evaluation-form.css - Enhanced */
+/* evaluation-form.css - Completely Redesigned */
 .performance-metrics {
   list-style: none;
   padding: 0;
-  background: #f8f9fc;
+  background: linear-gradient(135deg, rgba(248, 249, 252, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
   border-radius: var(--border-radius);
-  padding: 20px;
+  padding: 25px;
   box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .performance-metrics li {
-  margin: 15px 0;
-  font-size: 17px;
+  margin: 20px 0;
+  font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  border-bottom: 1px solid var(--light-gray);
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .performance-metrics li:last-child {
   border-bottom: none;
 }
 
+.performance-metrics li::before {
+  content: "•";
+  color: var(--primary);
+  font-size: 24px;
+  margin-right: 15px;
+}
+
 .task-inputs input {
-  width: 80px;
+  width: 90px;
   display: inline-block;
   text-align: center;
-  font-weight: 600;
-  padding: 10px;
+  font-weight: 700;
+  padding: 12px;
+  border: 2px solid var(--light-gray);
+  border-radius: 10px;
+  transition: var(--transition);
+}
+
+.task-inputs input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+  transform: scale(1.05);
+}
+
+/* Rating stars enhancement */
+.rating-stars {
+  display: flex;
+  direction: rtl;
+  unicode-bidi: bidi-override;
+}
+
+.rating-stars input {
+  display: none;
+}
+
+.rating-stars label {
+  font-size: 30px;
+  color: #ccc;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.rating-stars label::before {
+  content: "★";
+}
+
+.rating-stars input:checked ~ label,
+.rating-stars label:hover,
+.rating-stars label:hover ~ label {
+  color: var(--warning);
+  text-shadow: 0 0 5px rgba(249, 199, 79, 0.5);
 }
