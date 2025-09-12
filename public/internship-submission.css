@@ -1,17 +1,36 @@
-/* internship-submission.css - Reinstated file size note, attach styling */
+/* internship-submission.css - Enhanced */
 .file-note {
-    color: red;
-    font-size: 14px;
-    margin-bottom: 20px;
+  color: var(--danger);
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding: 10px 15px;
+  background: rgba(239, 71, 111, 0.1);
+  border-radius: var(--border-radius);
 }
 
 .attach-button {
-    background: #28a745; /* Green for attach */
-    padding: 8px 16px;
-    margin-left: 10px;
+  background: var(--success);
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.attach-button:hover {
+  background: #05c290;
+  transform: translateY(-2px);
 }
 
 input[type="file"] {
-    display: inline-block;
-    width: auto;
+  display: inline-block;
+  width: auto;
+  padding: 10px;
+  border: 2px dashed var(--light-gray);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+input[type="file"]:hover {
+  border-color: var(--primary);
+  background: rgba(67, 97, 238, 0.05);
 }

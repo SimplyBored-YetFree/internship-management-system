@@ -1,15 +1,31 @@
-/* evaluation-form.css - Star metrics, task types inputs */
+/* evaluation-form.css - Enhanced */
 .performance-metrics {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
+  background: #f8f9fc;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  box-shadow: var(--box-shadow);
 }
 
 .performance-metrics li {
-    margin: 10px 0;
-    font-size: 16px;
+  margin: 15px 0;
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.performance-metrics li:last-child {
+  border-bottom: none;
 }
 
 .task-inputs input {
-    width: 80px; /* Small inputs for % */
-    display: inline-block;
+  width: 80px;
+  display: inline-block;
+  text-align: center;
+  font-weight: 600;
+  padding: 10px;
 }

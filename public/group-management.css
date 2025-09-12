@@ -1,11 +1,28 @@
-/* group-management.css - Enhanced for group forms */
+/* group-management.css - Enhanced */
 .group-form {
-    border: 1px solid #ddd;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 8px;
+  border: 1px solid var(--light-gray);
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.group-form:hover {
+  border-color: var(--primary);
+  box-shadow: var(--box-shadow);
 }
 
 .group-name {
-    color: #007bff;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.group-name:before {
+  content: "👥";
+  margin-right: 10px;
 }

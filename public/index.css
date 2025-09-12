@@ -1,11 +1,23 @@
-/* index.css - Home page specific */
+/* index.css - Enhanced */
 .rating {
-    font-size: 18px;
-    color: #ffd700; /* Gold for stars */
-    margin: 10px 0;
+  font-size: 20px;
+  color: var(--warning);
+  margin: 15px 0;
+  display: flex;
+  align-items: center;
 }
 
 .reviews {
-    font-style: italic;
-    color: #666;
+  font-style: italic;
+  color: var(--gray);
+  border-left: 3px solid var(--primary);
+  padding-left: 15px;
+  margin: 15px 0;
+  transition: var(--transition);
+}
+
+.reviews:hover {
+  background: #f8f9fc;
+  padding: 10px 15px;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
 }

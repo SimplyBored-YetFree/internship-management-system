@@ -1,13 +1,30 @@
-/* student-dashboard.css - Enhanced for metrics and chart */
+/* student-dashboard.css - Enhanced */
+.metrics {
+  background: linear-gradient(135deg, #f8f9fc 0%, #e9ecef 100%);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-bottom: 25px;
+  box-shadow: var(--box-shadow);
+}
+
 .metrics p {
-    margin: 5px 0;
-    font-size: 16px;
+  margin: 10px 0;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
 }
 
 .metrics .star {
-    margin-right: 2px;
+  margin-right: 5px;
+  font-size: 20px;
 }
 
 canvas {
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Depth for chart */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: var(--transition);
+}
+
+canvas:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
