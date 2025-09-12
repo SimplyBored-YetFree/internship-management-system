@@ -1,4 +1,5 @@
-/* internship-submission.css - Enhanced */
+/* internship-submission.css - Enhanced with glassmorphism, animations, and responsiveness */
+
 .file-note {
   color: var(--danger);
   font-size: 16px;
@@ -8,12 +9,22 @@
   border-radius: var(--border-radius);
   border-left: 5px solid var(--danger);
   position: relative;
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
 }
 
 .file-note::before {
   content: "💡";
   margin-right: 10px;
   font-size: 20px;
+  animation: pulse 1.5s infinite;
+}
+
+.file-note:hover {
+  background: rgba(239, 71, 111, 0.15);
+  transform: translateX(5px);
+  box-shadow: var(--box-shadow);
 }
 
 .attach-button {
@@ -21,9 +32,26 @@
   padding: 12px 24px;
   margin-left: 15px;
   border-radius: 50px;
-  transition: var(--transition);
+  transition: var(--transition-spring);
   box-shadow: 0 5px 15px rgba(4, 201, 240, 0.3);
   font-weight: 600;
+  position: relative;
+  overflow: hidden;
+}
+
+.attach-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.4s ease;
+}
+
+.attach-button:hover::after {
+  left: 100%;
 }
 
 .attach-button:hover {
@@ -38,8 +66,27 @@ input[type="file"] {
   padding: 15px;
   border: 2px dashed var(--light-gray);
   border-radius: var(--border-radius);
-  transition: var(--transition);
+  transition: var(--transition-spring);
   background: rgba(248, 249, 252, 0.7);
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="file"]::before {
+  content: "📤 Upload File";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--gray);
+  font-weight: 500;
+  opacity: 0.7;
+  transition: var(--transition);
+}
+
+input[type="file"]:hover::before {
+  opacity: 1;
+  color: var(--primary);
 }
 
 input[type="file"]:hover {
@@ -49,21 +96,23 @@ input[type="file"]:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* Drag and drop area styling */
+/* File Drop Area */
 .file-drop-area {
   border: 2px dashed var(--primary);
   border-radius: var(--border-radius);
   padding: 30px;
   text-align: center;
-  transition: var(--transition);
+  transition: var(--transition-spring);
   background: rgba(67, 97, 238, 0.05);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--box-shadow-sm);
 }
 
 .file-drop-area:hover {
   background: rgba(67, 97, 238, 0.1);
   transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
 }
 
 .file-drop-area::before {
@@ -72,4 +121,61 @@ input[type="file"]:hover {
   display: block;
   margin-bottom: 15px;
   opacity: 0.7;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .file-note {
+    font-size: 14px;
+    padding: 12px 15px;
+  }
+
+  .attach-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+  }
+
+  input[type="file"] {
+    padding: 12px;
+  }
+
+  .file-drop-area {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .file-note {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .attach-button {
+    margin-left: 0;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  input[type="file"] {
+    width: 100%;
+  }
+
+  .file-drop-area {
+    padding: 20px;
+  }
+}
+
+/* Accessibility */
+.file-drop-area:focus-visible,
+input[type="file"]:focus-visible,
+.attach-button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
 }

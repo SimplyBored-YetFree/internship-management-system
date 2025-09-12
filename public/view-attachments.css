@@ -1,16 +1,17 @@
-/* view-attachments.css - Enhanced */
+/* view-attachments.css - Enhanced with modern features like glassmorphism, animations, and responsiveness */
+
 a.download {
   display: flex;
   align-items: center;
   margin: 20px 0;
   color: var(--primary);
   text-decoration: none;
-  transition: var(--transition);
+  transition: var(--transition-spring);
   padding: 18px 25px;
-  background: rgba(248, 249, 252, 0.8);
+  background: var(--glass-bg);
   border-radius: var(--border-radius);
-  border: 1px solid transparent;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--box-shadow-sm);
   position: relative;
   overflow: hidden;
 }
@@ -26,16 +27,15 @@ a.download::after {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: -100%;
   width: 100%;
   height: 100%;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  transform: translateX(-100%);
+  transition: left 0.6s ease;
 }
 
 a.download:hover::after {
-  transform: translateX(100%);
-  transition: transform 0.6s ease;
+  left: 100%;
 }
 
 a.download:hover {
@@ -50,22 +50,130 @@ a.download:hover::before {
   transform: scale(1.2) rotate(5deg);
 }
 
-/* File type indicators */
+/* File Type Indicators with Animations */
 .download[href$=".pdf"]::before {
   content: "📄";
+  animation: iconShake 0.5s infinite alternate;
 }
 
 .download[href$=".doc"]::before,
 .download[href$=".docx"]::before {
   content: "📝";
+  animation: iconShake 0.5s infinite alternate;
 }
 
 .download[href$=".zip"]::before,
 .download[href$=".rar"]::before {
   content: "🗜️";
+  animation: iconShake 0.5s infinite alternate;
 }
 
 .download[href$=".xls"]::before,
 .download[href$=".xlsx"]::before {
   content: "📊";
+  animation: iconShake 0.5s infinite alternate;
+}
+
+@keyframes iconShake {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* Attachment List Container */
+.attachments-list {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  padding: 40px;
+  box-shadow: var(--box-shadow);
+  position: relative;
+  overflow: hidden;
+  margin: 30px 0;
+}
+
+.attachments-list::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatSlow 10s ease-in-out infinite;
+}
+
+.attachments-list::after {
+  content: "";
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatSlow 12s ease-in-out infinite reverse;
+}
+
+/* Empty State for Attachments */
+.no-attachments {
+  text-align: center;
+  padding: 60px 0;
+  color: var(--gray);
+  font-size: 18px;
+  position: relative;
+}
+
+.no-attachments::before {
+  content: "📂";
+  font-size: 80px;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 0.3;
+  animation: fadeIn 1s ease-out;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  a.download {
+    padding: 15px 20px;
+    font-size: 16px;
+  }
+
+  a.download::before {
+    font-size: 20px;
+  }
+
+  .attachments-list {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  a.download {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 15px;
+  }
+
+  a.download::before {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .no-attachments {
+    padding: 40px 0;
+    font-size: 16px;
+  }
+
+  .no-attachments::before {
+    font-size: 60px;
+  }
+}
+
+/* Accessibility */
+a.download:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
