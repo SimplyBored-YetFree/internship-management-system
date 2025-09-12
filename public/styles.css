@@ -55,6 +55,7 @@ h1, h2, h3 {
 h1 {
   font-size: 2.2rem;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -201,6 +202,8 @@ label {
   
   h1 {
     font-size: 1.8rem;
+    background: var(--primary); /* Fallback for mobile */
+    -webkit-text-fill-color: initial;
   }
   
   button, input[type="submit"] {
