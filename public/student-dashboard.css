@@ -1,69 +1,267 @@
-/* student-dashboard.css - Enhanced */
+/* Enhanced Dashboard Styles - For both student-dashboard.css and faculty-dashboard.css */
+
+/* Dashboard Header */
+.dashboard-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  padding: 40px 0;
+  margin: -50px -50px 40px -50px;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.dashboard-header::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 12s ease-in-out infinite;
+}
+
+.dashboard-header::after {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  left: -20%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite reverse;
+}
+
+.dashboard-title {
+  color: var(--white);
+  text-align: center;
+  font-size: 42px;
+  font-weight: 900;
+  margin: 0;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard-subtitle {
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 18px;
+  margin: 10px 0 0 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced Metrics Section */
 .metrics {
-  background: linear-gradient(135deg, rgba(248, 249, 252, 0.9) 0%, rgba(233, 236, 239, 0.9) 100%);
-  padding: 30px;
+  background: linear-gradient(135deg, rgba(248, 249, 252, 0.95) 0%, rgba(233, 236, 239, 0.95) 100%);
+  padding: 40px;
   border-radius: var(--border-radius);
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   box-shadow: var(--box-shadow);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
 }
 
 .metrics::before {
   content: "";
   position: absolute;
-  top: -50px;
-  right: -50px;
-  width: 150px;
-  height: 150px;
+  top: -30px;
+  right: -30px;
+  width: 120px;
+  height: 120px;
   background: linear-gradient(135deg, var(--primary), transparent 70%);
   border-radius: 50%;
   opacity: 0.1;
+  animation: rotate 20s linear infinite;
 }
 
+.metrics::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(135deg, var(--secondary), transparent 70%);
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: rotate 25s linear infinite reverse;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.metric-card {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-spring);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.metric-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.metric-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--box-shadow);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.metric-value {
+  font-size: 48px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.metric-label {
+  color: var(--gray-dark);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metric-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+  display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Enhanced Star Rating */
 .metrics p {
-  margin: 15px 0;
-  font-size: 18px;
+  margin: 20px 0;
+  font-size: 20px;
   display: flex;
   align-items: center;
   position: relative;
-  z-index: 1;
+  z-index: 3;
+  padding: 15px 0;
 }
 
 .metrics .star {
   margin-right: 8px;
-  font-size: 24px;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  font-size: 32px;
+  filter: drop-shadow(0 3px 6px rgba(245, 158, 11, 0.4));
+  transition: var(--transition);
+  cursor: pointer;
 }
 
+.metrics .star:hover {
+  transform: scale(1.2) rotate(10deg);
+  filter: drop-shadow(0 5px 10px rgba(245, 158, 11, 0.6));
+}
+
+/* Enhanced Canvas Styling */
 canvas {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: var(--transition);
   background: var(--white);
   border-radius: var(--border-radius);
-  padding: 20px;
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+  padding: 30px;
+  position: relative;
 }
 
 canvas:hover {
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-lg);
+  transform: translateY(-3px);
 }
 
-/* Achievement badges */
+.chart-container {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 252, 0.9) 100%);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  overflow: hidden;
+}
+
+.chart-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.chart-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary-dark);
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+}
+
+.chart-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+/* Achievement Badges Enhancement */
 .achievement-badge {
-  display: inline-block;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  color: white;
-  border-radius: 50px;
+  color: var(--white);
+  border-radius: var(--border-radius-lg);
   font-weight: 600;
-  margin: 10px 5px;
-  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+  font-size: 14px;
+  margin: 8px 4px;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
   position: relative;
   overflow: hidden;
+  transition: var(--transition-spring);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.achievement-badge::before {
+  content: "🏆";
+  font-size: 18px;
 }
 
 .achievement-badge::after {
@@ -73,6 +271,411 @@ canvas:hover {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
   transform: rotate(30deg);
+  transition: var(--transition);
+}
+
+.achievement-badge:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+}
+
+.achievement-badge:hover::after {
+  animation: shine 0.8s ease-out;
+}
+
+@keyframes shine {
+  0% { transform: translateX(-200%) rotate(30deg); }
+  100% { transform: translateX(200%) rotate(30deg); }
+}
+
+/* Student Search Enhancement */
+#studentSearch {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 20px 30px 20px 60px;
+  border: 2px solid var(--light-gray);
+  border-radius: var(--border-radius-lg);
+  transition: var(--transition-spring);
+  font-size: 18px;
+  box-shadow: var(--box-shadow-sm);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  position: relative;
+}
+
+#studentSearch::before {
+  content: "🔍";
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+#studentSearch:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15), var(--box-shadow-sm);
+  transform: translateY(-2px);
+  background: var(--white);
+}
+
+#studentSearch::placeholder {
+  color: var(--gray);
+  opacity: 0.8;
+  font-style: italic;
+}
+
+/* Create Group Button Enhancement */
+.create-group {
+  background: linear-gradient(135deg, var(--warning) 0%, var(--accent-light) 100%);
+  color: var(--white);
+  font-weight: 700;
+  box-shadow: 0 12px 24px rgba(245, 158, 11, 0.4);
+  letter-spacing: 0.5px;
+  padding: 20px 40px;
+  border-radius: var(--border-radius-lg);
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition-spring);
+  font-size: 16px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.create-group::before {
+  content: "➕";
+  margin-right: 12px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.create-group::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transition: all 0.6s ease;
+  transform: translate(-50%, -50%);
+}
+
+.create-group:hover {
+  transform: translateY(-3px) rotate(1deg);
+  box-shadow: 0 20px 40px rgba(245, 158, 11, 0.5);
+}
+
+.create-group:hover::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Faculty Table Enhancement */
+.faculty-table {
+  position: relative;
+  background: var(--white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.faculty-table::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    var(--primary) 0%, 
+    var(--secondary) 33%, 
+    var(--accent) 66%, 
+    var(--success) 100%);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  z-index: 2;
+}
+
+.faculty-table::after {
+  content: "📊";
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 60px;
+  opacity: 0.05;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.faculty-table table {
+  margin: 0;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+/* Enhanced Table Rows */
+.faculty-table tr:hover {
+  background: linear-gradient(90deg, 
+    rgba(99, 102, 241, 0.08) 0%, 
+    rgba(139, 92, 246, 0.05) 100%);
+  transform: scale(1.01);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.faculty-table tr:hover td {
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+/* Quick Stats Cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 252, 0.9) 100%);
+  padding: 30px 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow-sm);
+  transition: var(--transition-spring);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  text-align: center;
+}
+
+.stat-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--primary);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: var(--box-shadow);
+}
+
+.stat-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+  display: block;
+  opacity: 0.8;
+}
+
+.stat-number {
+  font-size: 36px;
+  font-weight: 900;
+  color: var(--primary-dark);
+  margin-bottom: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--gray-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Recent Activity Section */
+.recent-activity {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 252, 0.9) 100%);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  margin: 30px 0;
+  box-shadow: var(--box-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--light-gray);
+  transition: var(--transition);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-item:hover {
+  background: rgba(99, 102, 241, 0.05);
+  transform: translateX(10px);
+  border-radius: var(--border-radius-sm);
+  padding-left: 15px;
+  margin-left: -15px;
+}
+
+.activity-icon {
+  font-size: 24px;
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-title {
+  font-weight: 600;
+  color: var(--gray-dark);
+  margin-bottom: 4px;
+}
+
+.activity-time {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+/* Progress Bars */
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background: var(--light-gray);
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+  margin: 15px 0;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  border-radius: 6px;
+  position: relative;
+  transition: width 1s ease-out;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(
+    -45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 20px 20px;
+  animation: progressStripes 2s linear infinite;
+}
+
+@keyframes progressStripes {
+  0% { background-position: 0 0; }
+  100% { background-position: 20px 0; }
+}
+
+/* Notification Badges */
+.notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--danger);
+  color: var(--white);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-header {
+    margin: -30px -30px 30px -30px;
+    padding: 30px 0;
+  }
+  
+  .dashboard-title {
+    font-size: 32px;
+  }
+  
+  .metrics {
+    padding: 25px;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  #studentSearch {
+    padding: 16px 24px 16px 50px;
+    font-size: 16px;
+  }
+  
+  .create-group {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-header {
+    margin: -20px -20px 20px -20px;
+    padding: 20px 0;
+  }
+  
+  .dashboard-title {
+    font-size: 24px;
+  }
+  
+  .metrics {
+    padding: 20px;
+  }
+  
+  .metric-value {
+    font-size: 36px;
+  }
+  
+  .achievement-badge {
+    font-size: 12px;
+    padding: 10px 16px;
+    margin: 4px 2px;
+  }
 }
