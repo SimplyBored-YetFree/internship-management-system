@@ -1,76 +1,5 @@
 /* index.css - Enhanced with modern features like glassmorphism, animations, and responsiveness */
 
-/* CSS Variables */
-:root {
-  --primary: #4361ee;
-  --primary-dark: #3a0ca3;
-  --secondary: #7209b7;
-  --white: #ffffff;
-  --gray: #6b7280;
-  --dark: #1f2937;
-  --warning: #f59e0b;
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-bg-hover: rgba(255, 255, 255, 0.2);
-  --glass-border: rgba(255, 255, 255, 0.2);
-  --border-radius: 8px;
-  --border-radius-sm: 6px;
-  --box-shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.1);
-  --box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-  --transition: all 0.3s ease;
-}
-
-/* Button Styling */
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--white);
-  background: var(--primary);
-  border-radius: var(--border-radius);
-  border: 1px solid var(--glass-border);
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
-  box-shadow: var(--box-shadow-sm);
-  backdrop-filter: blur(5px);
-  margin: 10px;
-}
-
-.button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: var(--box-shadow);
-}
-
-.button::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transition: 0.5s;
-}
-
-.button:hover::before {
-  left: 100%;
-}
-
-.button:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 4px;
-}
-
 /* Rating Section */
 .rating {
   font-size: 24px;
@@ -155,7 +84,7 @@
   padding: 30px;
   margin: 20px 0;
   box-shadow: var(--box-shadow);
-  transition: var(--transition);
+  transition: var(--transition-spring);
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.5);
@@ -209,11 +138,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .button {
-    padding: 10px 20px;
-    font-size: 0.9rem;
-  }
-
   .rating {
     font-size: 20px;
     padding: 10px 0;
@@ -231,13 +155,6 @@
 }
 
 @media (max-width: 480px) {
-  .button {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin: 10px 0;
-  }
-
   .rating {
     font-size: 18px;
     flex-direction: column;
@@ -260,8 +177,7 @@
 /* Accessibility */
 .rating:focus-visible,
 .reviews:focus-visible,
-.feature-card:focus-visible,
-.button:focus-visible {
+.feature-card:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: 4px;
 }
