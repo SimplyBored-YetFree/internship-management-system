@@ -156,7 +156,7 @@
 
 @media (max-width: 480px) {
   .rating {
-    font-size: 19px;
+    font-size: 18px;
     flex-direction: column;
   }
 
