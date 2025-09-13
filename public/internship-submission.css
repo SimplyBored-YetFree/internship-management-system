@@ -1,4 +1,4 @@
-/* internship-submission.css - Enhanced with glassmorphism, animations, and responsiveness */
+/* internship-submission.css - Enhanced with glassmorphism, animations, and improved dark mode contrast */
 
 .file-note {
   color: var(--danger);
@@ -32,7 +32,7 @@
   padding: 12px 24px;
   margin-left: 15px;
   border-radius: 50px;
-  transition: var(--transition-spring);
+  transition: var(--transition spring);
   box-shadow: 0 5px 15px rgba(4, 201, 240, 0.3);
   font-weight: 600;
   position: relative;
@@ -66,10 +66,11 @@ input[type="file"] {
   padding: 15px;
   border: 2px dashed var(--light-gray);
   border-radius: var(--border-radius);
-  transition: var(--transition-spring);
+  transition: var(--transition spring);
   background: rgba(248, 249, 252, 0.7);
   cursor: pointer;
   position: relative;
+  color: var(--gray-dark);
 }
 
 input[type="file"]::before {
@@ -96,13 +97,33 @@ input[type="file"]:hover {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
+/* Dark mode adjustments for file input */
+@media (prefers-color-scheme: dark) {
+  input[type="file"] {
+    color: #f1f5f9;
+    background: rgba(55, 65, 81, 0.9);
+  }
+
+  input[type="file"]::before {
+    color: #94a3b8;
+  }
+
+  input[type="file"]:hover::before {
+    color: #f1f5f9;
+  }
+
+  input[type="file"]:hover {
+    background: rgba(67, 97, 238, 0.1);
+  }
+}
+
 /* File Drop Area */
 .file-drop-area {
   border: 2px dashed var(--primary);
   border-radius: var(--border-radius);
   padding: 30px;
   text-align: center;
-  transition: var(--transition-spring);
+  transition: var(--transition spring);
   background: rgba(67, 97, 238, 0.05);
   position: relative;
   overflow: hidden;
