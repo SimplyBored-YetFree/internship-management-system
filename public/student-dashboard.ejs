@@ -9,48 +9,35 @@
     <script src="/student-dashboard.js"></script>
 </head>
 <body>
-<a href="/" class="home-icon"></a>
-
-<h1 class="dashboard-title">Your Internship</h1>
-
-<div class="metrics">
-    <p><strong>Name:</strong> <%= student.name %></p>
-    <p><strong>Register Number:</strong> <%= student.reg_no %></p>
-    <p><strong>Internship:</strong> <%= evaluation ? 'Evaluated' : 'Not yet evaluated' %></p>
-    
+<a href="/" class="home-icon">🏠</a>
+<div class="container">
+    <h2>Your Internship</h2>
+    <p>Name: <%= student.name %></p>
+    <p>Register Number: <%= student.reg_no %></p>
+    <p>Internship: <%= internship ? internship.company_name : 'Not submitted' %></p>
     <% if (evaluation) { %>
-        <div class="evaluation">
-            <h3>Evaluation</h3>
-            <p><strong>Technical Skill:</strong> <%= '★'.repeat(evaluation.technical_skill) %></p>
-            <p><strong>Initiative:</strong> <%= '★'.repeat(evaluation.initiative) %></p>
-            <p><strong>Communication:</strong> <%= '★'.repeat(evaluation.communication) %></p>
-            <p><strong>Professionalism:</strong> <%= '★'.repeat(evaluation.professionalism) %></p>
-            <p><strong>Timely Completion:</strong> <%= '★'.repeat(evaluation.timely_completion) %></p>
-            <p><strong>Skills Gained:</strong> <%= evaluation.skills_gained || 'N/A' %></p>
-            <p><strong>Soft Skills:</strong> <%= evaluation.soft_skills || 'N/A' %></p>
-            <p><strong>Tools Used:</strong> <%= evaluation.tools_used || 'N/A' %></p>
-            <h3>Evaluation Breakdown</h3>
-            <canvas id="evaluationPieChart" width="400" height="400"></canvas>
+        <h3>Evaluation</h3>
+        <div class="performance-metrics">
+            <p>Technical Skill: <% for(let i=0; i<evaluation.technical_skill; i++) { %>★<% } %></p>
+            <p>Initiative: <% for(let i=0; i<evaluation.initiative; i++) { %>★<% } %></p>
+            <p>Communication: <% for(let i=0; i<evaluation.communication; i++) { %>★<% } %></p>
+            <p>Professionalism: <% for(let i=0; i<evaluation.professionalism; i++) { %>★<% } %></p>
+            <p>Timely Completion: <% for(let i=0; i<evaluation.timely_completion; i++) { %>★<% } %></p>
+            <p>Skills Gained: <%= evaluation.skills_gained %></p>
+            <p>Soft Skills: <%= evaluation.soft_skills %></p>
+            <p>Tools Used: <%= evaluation.tools_used %></p>
         </div>
-        
-        <!-- Safe JSON output outside of script tag -->
-        <script type="application/json" id="pieChartDataJson">
-            <%= pieChartData %>
-        </script>
-        
-        <script>
+        <canvas id="taskPieChart"><script>
             // Parse the JSON safely and render the chart
             const pieChartJsonElement = document.getElementById('pieChartDataJson');
             const pieChartData = JSON.parse(pieChartJsonElement.textContent);
             renderPieChart(pieChartData);
-        </script>
+        </script></canvas>
+        
+        <div id="taskData" data-tasks='<%- JSON.stringify(evaluation.task_types) %>' style="display:none;"></div>
     <% } %>
+    <a href="/internship-submission" class="button">Submit Internship</a>
+    <a href="/logout" class="button">Logout</a>
 </div>
-
-<a href="/internship-submission" class="button">Submit Internship</a>
-<a href="/logout" class="button">Logout</a>
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="/scripts.js"></script>
 </body>
 </html>
