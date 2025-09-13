@@ -188,9 +188,8 @@ h2 {
 p {
   margin-bottom: 20px;
 }
-
-/* Enhanced buttons */
-button, input[type="submit"] {
+/* Enhanced buttons - UPDATED */
+button, input[type="submit"], a.button {
   background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
   border: none;
   color: var(--white);
@@ -198,20 +197,26 @@ button, input[type="submit"] {
   border-radius: var(--border-radius);
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition spring);
+  transition: var(--transition-spring);
   position: relative;
   overflow: hidden;
   font-size: 16px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  margin: 10px 5px;
+  min-width: 140px;
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
 }
 
-button:hover, input[type="submit"]:hover {
+button:hover, input[type="submit"]:hover, a.button:hover {
   transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
 }
 
-button::after, input[type="submit"]::after {
+button::after, input[type="submit"]::after, a.button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -222,8 +227,40 @@ button::after, input[type="submit"]::after {
   transition: left 0.4s ease;
 }
 
-button:hover::after, input[type="submit"]:hover::after {
+button:hover::after, input[type="submit"]:hover::after, a.button:hover::after {
   left: 100%;
+}
+
+/* Specific style for back buttons */
+a.button[href*="dashboard"],
+a.button[href="/"] {
+  background: linear-gradient(135deg, var(--gray) 0%, var(--gray-dark) 100%);
+  box-shadow: 0 8px 20px rgba(100, 116, 139, 0.3);
+}
+
+a.button[href*="dashboard"]:hover,
+a.button[href="/"]:hover {
+  box-shadow: 0 15px 30px rgba(100, 116, 139, 0.4);
+}
+
+/* Specific style for logout buttons */
+a.button[href="/logout"] {
+  background: linear-gradient(135deg, var(--danger) 0%, var(--danger-light) 100%);
+  box-shadow: 0 8px 20px rgba(239, 68, 68, 0.3);
+}
+
+a.button[href="/logout"]:hover {
+  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.4);
+}
+
+/* Specific style for evaluation buttons */
+a.button[href*="evaluation"] {
+  background: linear-gradient(135deg, var(--success) 0%, var(--success-light) 100%);
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+}
+
+a.button[href*="evaluation"]:hover {
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
 }
 
 /* Enhanced inputs */
